@@ -8,14 +8,12 @@ const Header = () => {
 
   console.log(isOpen);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    console.log("toggle");
-  };
+  const mobileMenuToggle = () => setIsOpen(!isOpen);
+  const closeMobileMenu = () => setIsOpen(false);
   return (
     <header className={styles.header}>
       <nav className={`${styles.navBar} mainLayContainer`}>
-        <NavLink to='/' className={`${styles.navItem} ${styles.logo}`}>
+        <NavLink to='/' className={styles.logo}>
           <span>B</span>
           etty
           <span>C</span>
@@ -23,19 +21,34 @@ const Header = () => {
           <span>D</span>
           esigns
         </NavLink>
-
-        <NavLink className={styles.navItem} to='/'>
-          Home
-        </NavLink>
-        <NavLink className={styles.navItem} to='/contact'>
-          Contact
-        </NavLink>
-        <NavLink className={styles.navItem} to='/cart'>
-          Cart
-        </NavLink>
+        <div
+          className={
+            isOpen
+              ? `${styles.navItemWrapper} ${styles.active}`
+              : `${styles.navItemWrapper}`
+          }
+        >
+          <NavLink onClick={closeMobileMenu} className={styles.navItem} to='/'>
+            Home
+          </NavLink>
+          <NavLink
+            onClick={closeMobileMenu}
+            className={styles.navItem}
+            to='/contact'
+          >
+            Contact
+          </NavLink>
+          <NavLink
+            onClick={closeMobileMenu}
+            className={styles.navItem}
+            to='/cart'
+          >
+            Cart
+          </NavLink>
+        </div>
         <div className={styles.toggleMenuWrapper}>
           <i
-            onClick={toggleMenu}
+            onClick={mobileMenuToggle}
             className={isOpen ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
