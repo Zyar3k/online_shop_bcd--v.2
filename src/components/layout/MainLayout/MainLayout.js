@@ -3,11 +3,11 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 const MainLayout = ({ children }) => (
-  <MainContainer>
+  <>
     <Header />
-    {children}
+    <MainContainer>{children}</MainContainer>
     <Footer />
-  </MainContainer>
+  </>
 );
 
 export default MainLayout;

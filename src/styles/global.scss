@@ -1,0 +1,49 @@
+@import "./settings.scss";
+@import "./typography.scss";
+@import "./normalize.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lobster", cursive;
+  font-family: $font-text;
+  color: $color-text;
+
+  background: #00d0ff80;
+  background: -webkit-linear-gradient(
+    to right,
+    #00d0ff80,
+    #2bc0e4,
+    #2bc0e4,
+    #00d0ff80
+  );
+  background: linear-gradient(to right, #00d0ff80, #2bc0e4, #2bc0e4, #00d0ff80);
+
+  a,
+  a:hover,
+  a:visited {
+  }
+
+  a:hover {
+  }
+
+  a.active {
+  }
+
+  .container {
+  }
+}
+
+.mainLayContainer {
+  // border: 1px dotted blue;
+  height: 100%;
+  width: 1260px;
+  margin: 0 auto;
+  // display: flex;
+}

@@ -1,0 +1,10 @@
+@import "../../../styles/global";
+
+.mainContainer {
+  // border: 1px dotted red;
+
+  width: 1260px;
+  margin: 0 auto;
+  margin-top: 60px;
+  min-height: calc(100vh - 90px);
+}

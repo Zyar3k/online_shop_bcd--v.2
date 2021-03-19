@@ -1,10 +1,12 @@
-import React from "react";
+import styles from "./Footer.module.scss";
 
 const Footer = () => {
   return (
-    <div>
-      <p>footer</p>
-    </div>
+    <footer className={styles.footer}>
+      <div className='mainLayContainer'>
+        <p>Zyar3k 2021</p>
+      </div>
+    </footer>
   );
 };
 

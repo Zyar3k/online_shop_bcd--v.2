@@ -1,0 +1,16 @@
+@import "../../../styles/global.scss";
+
+.footer {
+  height: 30px;
+  background: linear-gradient(to right, #00d0ff80, #2bc0e4, #2bc0e4, #00d0ff80);
+
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  align-items: center;
+  // height: 100%;
+
+  p {
+    font-family: $font-logo;
+  }
+}
