@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Product from "../../features/Product/Product";
 
 class ProductExtension extends Component {
   render() {
     return (
-      <div>
-        <p>ProductExtension</p>
-      </div>
+      <>
+        <Product />
+      </>
     );
   }
 }

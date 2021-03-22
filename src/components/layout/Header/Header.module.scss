@@ -38,6 +38,14 @@
         text-decoration: none;
         color: $color-text;
         font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        text-shadow: 2px 2px 4px rgb(13, 162, 198),
+          2px 2px 8px rgb(13, 162, 198), 2px 2px 12px rgb(13, 162, 198);
+
+        &:hover {
+          color: red;
+        }
       }
     }
 
@@ -54,10 +62,20 @@
         2px 2px 12px rgb(13, 162, 198);
       font-family: $font-logo;
       font-size: 30px;
+      transition: all 0.2s ease;
 
       span {
         margin-left: 10px;
         font-size: 50px;
+
+        &:nth-of-type(1) {
+          margin-left: 0;
+        }
+      }
+
+      &:hover {
+        text-shadow: 2px 2px 4px rgb(33, 182, 208),
+          2px 2px 8px rgb(33, 182, 208), 2px 2px 12px rgb(33, 182, 208);
       }
     }
   }

@@ -1,0 +1,12 @@
+@import "../../../styles/global.scss";
+
+.products {
+  // background-color: grey;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  // min-height: 100vh;
+}

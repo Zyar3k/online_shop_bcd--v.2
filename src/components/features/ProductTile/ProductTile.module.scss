@@ -1,0 +1,42 @@
+@import "../../../styles/global.scss";
+
+.productLink {
+  // width: 50%;
+}
+
+.productTile {
+  // border: 1px solid black;
+
+  // width: 400px;
+  margin: 10px;
+  // background-color: black;
+
+  .productImgWrapper {
+    position: relative;
+    img {
+      width: 350px;
+      height: auto;
+      // height: 100px;
+    }
+    .productTag,
+    .productName,
+    .productPrice {
+      position: absolute;
+      text-align: center;
+      border: 1px dotted black;
+      width: 100%;
+      // top: 0;
+      // left: 0;
+    }
+    .productTag {
+      top: 0;
+      left: 0;
+    }
+    .productName {
+      bottom: 20%;
+    }
+    .productPrice {
+      bottom: 10px;
+    }
+  }
+}

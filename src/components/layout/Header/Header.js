@@ -1,13 +1,9 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import CartIndicator from "../../common/CartIndicator/CartIndicator";
 
 import styles from "./Header.module.scss";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  console.log(isOpen);
-
+const Header = ({ isOpen, setIsOpen }) => {
   const mobileMenuToggle = () => setIsOpen(!isOpen);
   const closeMobileMenu = () => setIsOpen(false);
   return (
@@ -29,21 +25,21 @@ const Header = () => {
           }
         >
           <NavLink onClick={closeMobileMenu} className={styles.navItem} to='/'>
-            Home
+            <p>Home</p>
           </NavLink>
           <NavLink
             onClick={closeMobileMenu}
             className={styles.navItem}
             to='/contact'
           >
-            Contact
+            <p>Contact</p>
           </NavLink>
           <NavLink
             onClick={closeMobileMenu}
             className={styles.navItem}
             to='/cart'
           >
-            Cart
+            <CartIndicator isOpen={isOpen} />
           </NavLink>
         </div>
         <div className={styles.toggleMenuWrapper}>
