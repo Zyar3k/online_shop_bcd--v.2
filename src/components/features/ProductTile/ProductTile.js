@@ -14,7 +14,7 @@ class ProductTile extends React.Component {
             <img src={img} alt='img' />
             <p className={styles.productTag}>last one</p>
             <h2 className={styles.productName}>Handmade Birthday Card</h2>
-            <h3 className={styles.productPrice}>6.5</h3>
+            <h3 className={styles.productPrice}>6.5 $</h3>
           </div>
         </article>
       </Link>

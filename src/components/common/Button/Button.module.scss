@@ -12,21 +12,28 @@
   position: relative;
   overflow: hidden;
 
+  &:disabled {
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.2);
+  }
+
   &::before {
     content: "";
     position: absolute;
     top: -10px;
-    left: -56px;
-    width: 40px;
+    left: -60px;
+    width: 50px;
 
     -webkit-transform: rotate(20deg);
-    transform: rotate(20deg);
+    transform: rotate(20deg) translateX(-20px);
     height: 150%;
     background-color: rgba(255, 255, 255, 0.5);
-    transition: ease 0.4s all;
+    transition: ease 0.3s all;
   }
 
   &:hover::before {
-    transform: translateX(280px) rotate(20deg);
+    left: unset;
+    right: 50px;
+    transform: translateX(290px) rotate(20deg);
   }
 }
