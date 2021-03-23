@@ -1,26 +1,36 @@
 import React, { Component } from "react";
 
 import img from "../../../images/img01.jpg";
+import Button from "../../common/Button/Button";
 
 import styles from "./Product.module.scss";
 
 class Product extends Component {
+  handleOnClick = () => {
+    console.log("click");
+  };
   render() {
     return (
-      <div>
-        <img src={img} alt='img' />
-        <p>last one</p>
-        <h2>Handmade Birthday Card</h2>
-        <p>
-          handmade card with die cut butterfly attached on embossed base. both
-          sentiments are hand stamped. left blank inside for your own personal
-          message. perfect for mother’s day, birthday or just because!
-        </p>
-        <h3>6.5</h3>
-        <button>Back</button>
-        <button>Add to cart</button>
-        <button>Remove to cart</button>
-      </div>
+      <article className={styles.productWrapper}>
+        <h2 className={styles.productName}>Handmade Birthday Card</h2>
+        <div className={styles.imgWrapper}>
+          <img src={img} alt='img' />
+          <p className={styles.productTag}>last one</p>
+        </div>
+        <div className={styles.descriptionWrapper}>
+          <p className={styles.description}>
+            handmade card with die cut butterfly attached on embossed base. both
+            sentiments are hand stamped. left blank inside for your own personal
+            message. perfect for mother’s day, birthday or just because!
+          </p>
+          <h2>Price: 6.5$</h2>
+          <div className={styles.buttonsWrapper}>
+            <Button onClick={this.handleOnClick}>Back</Button>
+            <Button onClick={this.handleOnClick}>Add to cart</Button>
+            <Button onClick={this.handleOnClick}>Remove from cart</Button>
+          </div>
+        </div>
+      </article>
     );
   }
 }
