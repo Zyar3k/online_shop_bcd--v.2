@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../common/Button/Button";
+import ButtonBack from "../../common/ButtonBack/ButtonBack";
 import ProductInCart from "../ProductInCart/ProductInCart";
 
 import styles from "./Cart.module.scss";
@@ -23,7 +24,7 @@ class Cart extends React.Component {
         </table>
         <article className={styles.summaryWrapper}>
           <span>
-            <Button>Back</Button>
+            <ButtonBack />
           </span>
           <div className={styles.checkoutWrapper}>
             <h2>Summary</h2>

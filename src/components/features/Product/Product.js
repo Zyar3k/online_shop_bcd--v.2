@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 import Button from "../../common/Button/Button";
+import ButtonBack from "../../common/ButtonBack/ButtonBack";
 import Loader from "../../common/Loader/Loader";
 
 import styles from "./Product.module.scss";
@@ -16,6 +17,7 @@ class Product extends Component {
   };
   render() {
     const { products, request } = this.props;
+
     console.log(products);
     if (
       request.success === true &&
@@ -33,9 +35,10 @@ class Product extends Component {
             <p className={styles.description}>{products[0].description}</p>
             <h2>Price: {products[0].price}$</h2>
             <div className={styles.buttonsWrapper}>
-              <Button onClick={this.handleOnClick} disabled={false}>
+              <ButtonBack />
+              {/* <Button onClick={this.handleOnClick} disabled={false}>
                 Back
-              </Button>
+              </Button> */}
               <Button onClick={this.handleOnClick}>Add to cart</Button>
               <Button onClick={this.handleOnClick}>Remove from cart</Button>
             </div>
