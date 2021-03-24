@@ -1,0 +1,31 @@
+@import "../../../styles/settings.scss";
+
+tr {
+  // background-color: red;
+  text-align: center;
+
+  td {
+    padding: 4px;
+    // background-color: red;
+  }
+
+  td.delete {
+    width: 50px;
+    button {
+      border: none;
+      background: none;
+      padding: 8px;
+      color: khaki;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .imgWrapper {
+    margin: auto auto;
+    height: 75px;
+    img {
+      max-height: 100%;
+    }
+  }
+}

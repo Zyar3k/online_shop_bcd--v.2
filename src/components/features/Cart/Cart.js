@@ -1,10 +1,13 @@
 import React from "react";
+import Button from "../../common/Button/Button";
 import ProductInCart from "../ProductInCart/ProductInCart";
+
+import styles from "./Cart.module.scss";
 
 class Cart extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <h1>Your cart</h1>
         <table>
           <tr>
@@ -18,11 +21,17 @@ class Cart extends React.Component {
           <ProductInCart />
           <ProductInCart />
         </table>
-        <h2>Summary</h2>
-        <div>Total price: 2$</div>
-        <button>back</button>
-        <button>Proceed to checkout</button>
-      </div>
+        <article className={styles.summaryWrapper}>
+          <span>
+            <Button>Back</Button>
+          </span>
+          <div className={styles.checkoutWrapper}>
+            <h2>Summary</h2>
+            <h3>Total price: 2$</h3>
+            <Button>Proceed to checkout</Button>
+          </div>
+        </article>
+      </>
     );
   }
 }

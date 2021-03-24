@@ -1,20 +1,24 @@
 import React from "react";
 import ProductCartCounter from "../ProductCartCounter/ProductCartCounter";
 
+import styles from "./ProductInCart.module.scss";
+
+import img from "../../../images/img01.jpg";
+
 const ProductInCart = () => {
   return (
     <tr>
-      <th>
-        <button>delete</button>
-      </th>
-      <th>
-        <img src='' alt='img' />
-      </th>
-      <th>Handmade Birthday Card</th>
-      <th>4,45$</th>
-      <th>
+      <td className={styles.delete}>
+        <button>X</button>
+      </td>
+      <td className={styles.imgWrapper}>
+        <img src={img} alt='img' />
+      </td>
+      <td>Handmade Birthday Card</td>
+      <td>4,45$</td>
+      <td>
         <ProductCartCounter />
-      </th>
+      </td>
     </tr>
   );
 };
