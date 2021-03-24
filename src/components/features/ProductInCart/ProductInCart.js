@@ -3,14 +3,13 @@ import ProductCartCounter from "../ProductCartCounter/ProductCartCounter";
 
 import styles from "./ProductInCart.module.scss";
 
-import img from "../../../images/img01.jpg";
-
 const ProductInCart = (props) => {
-  const { products } = props;
+  const { products, deleteProduct } = props;
+
   return (
     <tr>
       <td className={styles.delete}>
-        <button>X</button>
+        <button onClick={deleteProduct}>X</button>
       </td>
       <td className={styles.imgWrapper}>
         <img src={products.img} alt='img' />

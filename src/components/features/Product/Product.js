@@ -29,9 +29,15 @@ class Product extends Component {
   addProductToCart = () => {
     const { products, cart, addProductCart } = this.props;
     const match = this.props.match.params.id;
-    const prepCart = cart.filter((item) => item.id === match);
+    const prepCart = cart.filter((item) => item._id === match);
     this.inCart();
     prepCart.length === 0 ? addProductCart(products[0]) : this.inCart();
+  };
+
+  deleteProduct = (id) => {
+    const { deleteProduct } = this.props;
+    deleteProduct(id);
+    this.notInCart();
   };
 
   removeFromCart = () => {
@@ -68,9 +74,6 @@ class Product extends Component {
             <h2>Price: {products[0].price}$</h2>
             <div className={styles.buttonsWrapper}>
               <ButtonBack />
-              {/* <Button onClick={this.handleOnClick} disabled={false}>
-                Back
-              </Button> */}
               <Button
                 onClick={this.addProductToCart}
                 disabled={this.state.inCart ? true : false}
@@ -78,8 +81,8 @@ class Product extends Component {
                 Add to cart
               </Button>
               <Button
-                onClick={this.removeFromCart}
-                disabled={this.state.inCart ? false : true}
+                onClick={this.deleteProduct}
+                disabled={!this.state.inCart ? true : false}
               >
                 Remove from cart
               </Button>

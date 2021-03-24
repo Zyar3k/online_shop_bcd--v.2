@@ -18,6 +18,7 @@ export const LOAD_PRODUCT = createActionName("LOAD_PRODUCT");
 
 export const ADD_PRODUCT_CART = createActionName("ADD_PRODUCT_CART");
 export const PLUS_PRODUCT_CART = createActionName("PLUS_PRODUCT_CART");
+export const DELETE_CART_PRODUCT = createActionName("DELETE_CART_PRODUCT");
 
 const START_REQUEST = createActionName("START_REQUEST");
 const END_REQUEST = createActionName("END_REQUEST");
@@ -31,6 +32,10 @@ export const addProductCart = (payload) => ({
   type: ADD_PRODUCT_CART,
 });
 export const plusProductCart = (id) => ({ id, type: PLUS_PRODUCT_CART });
+export const deleteCartProduct = (payload) => ({
+  payload,
+  type: DELETE_CART_PRODUCT,
+});
 
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
@@ -111,6 +116,12 @@ export default function reducer(statePart = initialState, action = {}) {
         item.id === action.id ? prodCartAdd : item
       );
       return { ...statePart, cart: plusProdCart };
+    case DELETE_CART_PRODUCT:
+      const deleteCartProduct = statePart.cart.filter(
+        // (item) => item.id !== action.payload
+        (item) => console.log(item.id)
+      );
+      return { ...statePart, cart: deleteCartProduct };
     default:
       return statePart;
   }

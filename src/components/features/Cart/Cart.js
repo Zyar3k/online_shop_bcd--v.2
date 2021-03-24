@@ -7,9 +7,13 @@ import ProductInCart from "../ProductInCart/ProductInCart";
 import styles from "./Cart.module.scss";
 
 class Cart extends React.Component {
+  deleteProduct = (id) => {
+    const { deleteProduct } = this.props;
+    deleteProduct(id);
+  };
   render() {
     const { cart } = this.props;
-    console.log(cart);
+    console.log("cart: ", cart);
     return (
       <>
         <h1>Your cart</h1>
@@ -22,7 +26,13 @@ class Cart extends React.Component {
             <th>Quantity</th>
           </tr>
           {cart.length !== 0 ? (
-            cart.map((item) => <ProductInCart key={item._id} products={item} />)
+            cart.map((item) => (
+              <ProductInCart
+                key={item._id}
+                products={item}
+                deleteProduct={this.deleteProduct}
+              />
+            ))
           ) : (
             <PendingInfo></PendingInfo>
           )}
