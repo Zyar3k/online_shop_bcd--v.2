@@ -9,12 +9,28 @@ class Products extends React.Component {
     loadProducts();
   }
   render() {
-    const { products } = this.props;
-    return (
-      <main className={styles.products}>
-        <ProductsList products={products} />
-      </main>
-    );
+    const { products, request } = this.props;
+    if (
+      request.success === true &&
+      request.pending === false &&
+      products.length > 0
+    ) {
+      return (
+        <main className={styles.products}>
+          <ProductsList products={products} />
+        </main>
+      );
+    } else if (request.pending === true || request.success === null) {
+      return "Loader";
+    } else if (request.pending === false && request.error !== null) {
+      return "pending";
+    } else if (
+      request.pending === false &&
+      request.success === true &&
+      products.length === 0
+    ) {
+      return "pending";
+    }
   }
 }
 

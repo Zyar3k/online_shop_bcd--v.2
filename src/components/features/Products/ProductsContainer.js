@@ -1,9 +1,14 @@
 import { connect } from "react-redux";
-import { getProducts, loadProductsRequest } from "../../../redux/productRedux";
+import {
+  getProducts,
+  getRequest,
+  loadProductsRequest,
+} from "../../../redux/productRedux";
 import Products from "./Products";
 
 const mapStateToProps = (state) => ({
   products: getProducts(state),
+  request: getRequest(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
