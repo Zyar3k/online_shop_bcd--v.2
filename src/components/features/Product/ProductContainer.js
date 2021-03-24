@@ -6,6 +6,7 @@ import {
   getRequest,
   addProductCart,
   deleteCartProduct,
+  calculatePrice,
   // plusProductCart,
 } from "../../../redux/productRedux";
 import Product from "./Product";
@@ -21,6 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   addProductCart: (payload) => dispatch(addProductCart(payload)),
   deleteProduct: (id) => dispatch(deleteCartProduct(id)),
   // plusProductCart: (id) => dispatch(plusProductCart(id)),
+  calculatePrice: () => dispatch(calculatePrice()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

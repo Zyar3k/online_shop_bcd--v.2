@@ -27,11 +27,12 @@ class Product extends Component {
   };
 
   addProductToCart = () => {
-    const { products, cart, addProductCart } = this.props;
+    const { products, cart, addProductCart, calculatePrice } = this.props;
     const match = this.props.match.params.id;
     const prepCart = cart.filter((item) => item._id === match);
     this.inCart();
     prepCart.length === 0 ? addProductCart(products[0]) : this.inCart();
+    calculatePrice();
   };
 
   deleteProduct = (_id) => {

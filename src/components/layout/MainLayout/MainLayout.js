@@ -2,7 +2,7 @@ import { useState } from "react";
 import MainContainer from "../MainContainer/MainContainer";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import CartIndicator from "../../common/CartIndicator/CartIndicator";
+// import CartIndicator from "../../common/CartIndicator/CartIndicator";
 
 const MainLayout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);

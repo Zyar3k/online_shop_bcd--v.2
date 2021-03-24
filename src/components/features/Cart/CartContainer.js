@@ -1,10 +1,15 @@
 import { connect } from "react-redux";
-import { getCart, deleteCartProduct } from "../../../redux/productRedux";
+import {
+  getCart,
+  deleteCartProduct,
+  getPrice,
+} from "../../../redux/productRedux";
 
 import Cart from "./Cart";
 
 const mapStateToProps = (state) => ({
   cart: getCart(state),
+  price: getPrice(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

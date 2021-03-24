@@ -10,6 +10,7 @@ export const getProduct = ({ products }) => products.product;
 export const getAmountOfProducts = ({ products }) => products.data.length;
 
 export const getCart = ({ products }) => products.cart;
+export const getPrice = ({ products }) => products.price;
 
 export const getRequest = ({ products }) => products.request;
 
@@ -19,6 +20,7 @@ export const LOAD_PRODUCT = createActionName("LOAD_PRODUCT");
 export const ADD_PRODUCT_CART = createActionName("ADD_PRODUCT_CART");
 export const PLUS_PRODUCT_CART = createActionName("PLUS_PRODUCT_CART");
 export const DELETE_CART_PRODUCT = createActionName("DELETE_CART_PRODUCT");
+export const CALCULATE_PRICE = createActionName("CALCULATE_PRICE");
 
 const START_REQUEST = createActionName("START_REQUEST");
 const END_REQUEST = createActionName("END_REQUEST");
@@ -36,6 +38,7 @@ export const deleteCartProduct = (payload) => ({
   payload,
   type: DELETE_CART_PRODUCT,
 });
+export const calculatePrice = () => ({ type: CALCULATE_PRICE });
 
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
@@ -45,6 +48,7 @@ const initialState = {
   data: [],
   product: [],
   cart: [],
+  price: 0,
   request: {
     pending: false,
     error: null,
@@ -121,6 +125,18 @@ export default function reducer(statePart = initialState, action = {}) {
         (item) => item._id !== action.payload
       );
       return { ...statePart, cart: deleteCartProduct };
+    case CALCULATE_PRICE:
+      let roundPrice;
+      if (statePart.cart.length !== 0) {
+        const fullPrice = statePart.cart.map(
+          (item) => item.price * item.quantity
+        );
+        const sumPrice = fullPrice.reduce((prev, curr) => prev + curr);
+        roundPrice = parseFloat(sumPrice.toFixed(2));
+      } else {
+        roundPrice = 0;
+      }
+      return { ...statePart, price: roundPrice };
     default:
       return statePart;
   }
