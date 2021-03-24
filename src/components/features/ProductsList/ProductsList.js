@@ -2,24 +2,9 @@ import ProductTile from "../ProductTile/ProductTile";
 
 const ProductsList = ({ products }) => (
   <>
-    {/* {products.map(() => ( */}
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    <ProductTile />
-    {/* ))} */}
+    {products.map((products) => (
+      <ProductTile key={products.id} {...products} />
+    ))}
   </>
 );
 
