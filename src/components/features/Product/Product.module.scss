@@ -14,14 +14,14 @@
   flex-wrap: wrap;
 
   .imgWrapper {
-    width: 35%;
+    width: 40%;
     position: relative;
     margin: auto 0;
 
     img {
       max-height: calc(100vh - 120px);
       transition: ease-in-out 0.5s all;
-      cursor: zoom-in;
+      // cursor: zoom-in;
 
       // &:hover {
       //   transform: scale(1.2);
@@ -36,7 +36,7 @@
   }
 
   .descriptionWrapper {
-    width: 65%;
+    width: 60%;
     padding: 10px 30px;
 
     display: flex;

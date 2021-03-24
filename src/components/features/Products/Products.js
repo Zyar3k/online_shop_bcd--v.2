@@ -1,6 +1,7 @@
 import React from "react";
 import Loader from "../../common/Loader/Loader";
 import PendingInfo from "../../common/PendingInfo/PendingInfo";
+import ProductsAmount from "../../common/ProductsAmount/ProductsAmountContainer";
 import ProductsList from "../ProductsList/ProductsList";
 
 import styles from "./Products.module.scss";
@@ -20,6 +21,9 @@ class Products extends React.Component {
     ) {
       return (
         <main className={styles.products}>
+          <span className={styles.productsAmountWrapper}>
+            <ProductsAmount />
+          </span>
           <ProductsList products={products} />
         </main>
       );

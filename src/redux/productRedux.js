@@ -7,6 +7,8 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 export const getProducts = ({ products }) => products.data;
 export const getProduct = ({ products }) => products.product;
 
+export const getAmountOfProducts = ({ products }) => products.data.length;
+
 export const getRequest = ({ products }) => products.request;
 
 export const LOAD_PRODUCTS = createActionName("LOAD_PRODUCTS");
