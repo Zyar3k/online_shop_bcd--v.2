@@ -34,29 +34,26 @@ class Product extends Component {
     prepCart.length === 0 ? addProductCart(products[0]) : this.inCart();
   };
 
-  deleteProduct = (id) => {
-    const { deleteProduct } = this.props;
-    deleteProduct(id);
+  deleteProduct = (_id) => {
+    const { deleteProduct, products } = this.props;
     this.notInCart();
-  };
-
-  removeFromCart = () => {
-    this.notInCart();
+    deleteProduct(products[0]._id);
   };
 
   isInCart = () => {
     const { cart } = this.props;
-    console.log(cart);
     const match = this.props.match.params.id;
-    console.log(match);
     const prepCart = cart.filter((item) => item._id === match);
     prepCart.length !== 0 ? this.inCart() : this.notInCart();
   };
 
+  componentDidUpdate() {
+    // console.log("cart in extension: ", this.props.cart);
+  }
+
   render() {
     const { products, request } = this.props;
 
-    console.log(products);
     if (
       request.success === true &&
       request.pending === false &&

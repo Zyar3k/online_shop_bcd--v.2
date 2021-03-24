@@ -118,8 +118,7 @@ export default function reducer(statePart = initialState, action = {}) {
       return { ...statePart, cart: plusProdCart };
     case DELETE_CART_PRODUCT:
       const deleteCartProduct = statePart.cart.filter(
-        // (item) => item.id !== action.payload
-        (item) => console.log(item.id)
+        (item) => item._id !== action.payload
       );
       return { ...statePart, cart: deleteCartProduct };
     default:
