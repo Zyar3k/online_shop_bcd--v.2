@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 import Button from "../../common/Button/Button";
+import Loader from "../../common/Loader/Loader";
 
 import styles from "./Product.module.scss";
 
@@ -42,7 +43,7 @@ class Product extends Component {
         </article>
       );
     } else if (request.pending === true || request.success === null) {
-      return "loader";
+      return <Loader />;
     } else if (request.pending === false && request.error !== null) {
       return <p>{request.error}</p>;
     } else if (

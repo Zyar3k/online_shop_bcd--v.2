@@ -1,4 +1,6 @@
 import React from "react";
+import Loader from "../../common/Loader/Loader";
+import PendingInfo from "../../common/PendingInfo/PendingInfo";
 import ProductsList from "../ProductsList/ProductsList";
 
 import styles from "./Products.module.scss";
@@ -10,6 +12,7 @@ class Products extends React.Component {
   }
   render() {
     const { products, request } = this.props;
+
     if (
       request.success === true &&
       request.pending === false &&
@@ -21,15 +24,15 @@ class Products extends React.Component {
         </main>
       );
     } else if (request.pending === true || request.success === null) {
-      return "Loader";
+      return <Loader />;
     } else if (request.pending === false && request.error !== null) {
-      return "pending";
+      return <PendingInfo>{request.error}</PendingInfo>;
     } else if (
       request.pending === false &&
       request.success === true &&
       products.length === 0
     ) {
-      return "pending";
+      return <PendingInfo>Sorry, no products available!</PendingInfo>;
     }
   }
 }

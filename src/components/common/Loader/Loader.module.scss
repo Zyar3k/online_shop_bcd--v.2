@@ -1,0 +1,55 @@
+@import "../../../styles/settings.scss";
+
+.loaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+
+  .loadingSpinner {
+    margin: 0 20px;
+
+    display: inline-block;
+    border: 10px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: black;
+    animation: spin infinite ease-in-out 1s forwards;
+
+    &.first {
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(0, 0, 0, 0.3);
+      border-top-color: black;
+    }
+    &.second {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.3);
+      border-top-color: black;
+    }
+    &.third {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(0, 0, 0, 0.3);
+      border-top-color: black;
+    }
+    &.fourth {
+      width: 80px;
+      height: 80px;
+      border: 8px solid rgba(0, 0, 0, 0.3);
+      border-top-color: black;
+    }
+    &.fifth {
+      width: 100px;
+      height: 100px;
+      border: 10px solid rgba(0, 0, 0, 0.3);
+      border-top-color: black;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
