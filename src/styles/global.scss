@@ -14,6 +14,7 @@ body {
   font-family: "Lobster", cursive;
   font-family: $font-text;
   color: $color-text;
+  overflow-y: scroll;
 
   background: #00d0ff80;
   background: -webkit-linear-gradient(
