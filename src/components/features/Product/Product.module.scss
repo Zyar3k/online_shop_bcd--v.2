@@ -5,7 +5,6 @@
 // }
 
 .productWrapper {
-  // border: 1px solid black;
   margin: 10px 0;
   padding: 10px;
 
@@ -20,13 +19,13 @@
     margin: auto 0;
 
     img {
-      width: 100%;
+      max-height: calc(100vh - 120px);
       transition: ease-in-out 0.5s all;
       cursor: zoom-in;
 
-      &:hover {
-        transform: scale(1.2);
-      }
+      // &:hover {
+      //   transform: scale(1.2);
+      // }
     }
 
     .productTag {
