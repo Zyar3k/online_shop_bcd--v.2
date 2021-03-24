@@ -24,7 +24,7 @@ class Product extends Component {
       return (
         <article className={styles.productWrapper}>
           <div className={styles.imgWrapper}>
-            <img src={products[0].img} alt='img' />
+            <img src={`../../${products[0].img}`} alt='img' />
             <p className={styles.productTag}>{products[0].tag}</p>
           </div>
           <div className={styles.descriptionWrapper}>

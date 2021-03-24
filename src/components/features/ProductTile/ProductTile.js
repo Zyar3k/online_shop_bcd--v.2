@@ -5,9 +5,9 @@ import styles from "./ProductTile.module.scss";
 
 class ProductTile extends React.Component {
   render() {
-    const { tag, img, name, price } = this.props;
+    const { _id, tag, img, name, price } = this.props;
     return (
-      <Link className={styles.productLink} to={`product/:id`}>
+      <Link className={styles.productLink} to={`product/${_id}`}>
         <article className={styles.productTile}>
           <div className={styles.productImgWrapper}>
             <img src={img} alt='img' />
