@@ -1,12 +1,15 @@
 import React from "react";
 import Button from "../../common/Button/Button";
 import ButtonBack from "../../common/ButtonBack/ButtonBack";
+import PendingInfo from "../../common/PendingInfo/PendingInfo";
 import ProductInCart from "../ProductInCart/ProductInCart";
 
 import styles from "./Cart.module.scss";
 
 class Cart extends React.Component {
   render() {
+    const { cart } = this.props;
+    console.log(cart);
     return (
       <>
         <h1>Your cart</h1>
@@ -18,9 +21,11 @@ class Cart extends React.Component {
             <th>Price</th>
             <th>Quantity</th>
           </tr>
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
+          {cart.length !== 0 ? (
+            cart.map((item) => <ProductInCart key={item._id} products={item} />)
+          ) : (
+            <PendingInfo></PendingInfo>
+          )}
         </table>
         <article className={styles.summaryWrapper}>
           <span>

@@ -9,10 +9,15 @@ export const getProduct = ({ products }) => products.product;
 
 export const getAmountOfProducts = ({ products }) => products.data.length;
 
+export const getCart = ({ products }) => products.cart;
+
 export const getRequest = ({ products }) => products.request;
 
 export const LOAD_PRODUCTS = createActionName("LOAD_PRODUCTS");
 export const LOAD_PRODUCT = createActionName("LOAD_PRODUCT");
+
+export const ADD_PRODUCT_CART = createActionName("ADD_PRODUCT_CART");
+export const PLUS_PRODUCT_CART = createActionName("PLUS_PRODUCT_CART");
 
 const START_REQUEST = createActionName("START_REQUEST");
 const END_REQUEST = createActionName("END_REQUEST");
@@ -21,6 +26,12 @@ const ERROR_REQUEST = createActionName("ERROR_REQUEST");
 export const loadProducts = (payload) => ({ payload, type: LOAD_PRODUCTS });
 export const loadProduct = (payload) => ({ payload, type: LOAD_PRODUCT });
 
+export const addProductCart = (payload) => ({
+  payload,
+  type: ADD_PRODUCT_CART,
+});
+export const plusProductCart = (id) => ({ id, type: PLUS_PRODUCT_CART });
+
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
 export const errorRequest = (error) => ({ error, type: ERROR_REQUEST });
@@ -28,6 +39,7 @@ export const errorRequest = (error) => ({ error, type: ERROR_REQUEST });
 const initialState = {
   data: [],
   product: [],
+  cart: [],
   request: {
     pending: false,
     error: null,
@@ -84,6 +96,21 @@ export default function reducer(statePart = initialState, action = {}) {
         ...statePart,
         request: { pending: false, error: action.error, success: false },
       };
+    case ADD_PRODUCT_CART:
+      const productAdded = action.payload;
+      productAdded.quantity += 1;
+      return {
+        ...statePart,
+        cart: statePart.cart.concat(productAdded),
+        orderState: false,
+      };
+    case PLUS_PRODUCT_CART:
+      const prodCartAdd = statePart.cart.find((item) => item.id === action.id);
+      prodCartAdd.quantity += 1;
+      const plusProdCart = statePart.cart.map((item) =>
+        item.id === action.id ? prodCartAdd : item
+      );
+      return { ...statePart, cart: plusProdCart };
     default:
       return statePart;
   }

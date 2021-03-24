@@ -9,12 +9,44 @@ import styles from "./Product.module.scss";
 
 class Product extends Component {
   componentDidMount() {
-    const { loadProducts, match } = this.props;
+    const { loadProducts, match, cart } = this.props;
     loadProducts(match.params.id);
+    this.isInCart();
+    console.log(cart);
   }
-  handleOnClick = () => {
-    console.log("click");
+
+  state = {
+    inCart: false,
   };
+
+  inCart = () => {
+    this.setState({ inCart: true });
+  };
+  notInCart = () => {
+    this.setState({ inCart: false });
+  };
+
+  addProductToCart = () => {
+    const { products, cart, addProductCart } = this.props;
+    const match = this.props.match.params.id;
+    const prepCart = cart.filter((item) => item.id === match);
+    this.inCart();
+    prepCart.length === 0 ? addProductCart(products[0]) : this.inCart();
+  };
+
+  removeFromCart = () => {
+    this.notInCart();
+  };
+
+  isInCart = () => {
+    const { cart } = this.props;
+    console.log(cart);
+    const match = this.props.match.params.id;
+    console.log(match);
+    const prepCart = cart.filter((item) => item._id === match);
+    prepCart.length !== 0 ? this.inCart() : this.notInCart();
+  };
+
   render() {
     const { products, request } = this.props;
 
@@ -39,8 +71,18 @@ class Product extends Component {
               {/* <Button onClick={this.handleOnClick} disabled={false}>
                 Back
               </Button> */}
-              <Button onClick={this.handleOnClick}>Add to cart</Button>
-              <Button onClick={this.handleOnClick}>Remove from cart</Button>
+              <Button
+                onClick={this.addProductToCart}
+                disabled={this.state.inCart ? true : false}
+              >
+                Add to cart
+              </Button>
+              <Button
+                onClick={this.removeFromCart}
+                disabled={this.state.inCart ? false : true}
+              >
+                Remove from cart
+              </Button>
             </div>
           </div>
         </article>
