@@ -1,0 +1,35 @@
+@import "../../../styles/settings.scss";
+
+.orderWrapper {
+  .orderTitle {
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    border: 1px solid khaki;
+    border-top: none;
+    border-right: none;
+
+    .orderName {
+      margin-right: 10px;
+    }
+  }
+
+  .orderSubtotal {
+    font-size: 20px;
+    border: 1px solid khaki;
+    border-top: none;
+    text-align: end;
+    p {
+      margin: 0 auto;
+      width: 50%;
+    }
+  }
+}
+
+.totalPrice {
+  text-align: end;
+  p {
+    margin: 0 auto;
+    width: 50%;
+  }
+}

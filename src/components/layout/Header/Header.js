@@ -7,6 +7,9 @@ const Header = ({ isOpen, setIsOpen, price, cart }) => {
   const mobileMenuToggle = () => setIsOpen(!isOpen);
   const closeMobileMenu = () => setIsOpen(false);
 
+  console.log("cart header", cart);
+  console.log("price header", price);
+
   return (
     <header className={styles.header}>
       <nav className={`${styles.navBar} mainLayContainer`}>
