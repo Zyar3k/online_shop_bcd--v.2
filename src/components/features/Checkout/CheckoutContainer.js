@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getCart, getPrice } from "../../../redux/productRedux";
+import { getCart, getPrice, clearCart } from "../../../redux/productRedux";
 
 import Checkout from "./Checkout";
 
@@ -8,4 +8,8 @@ const mapStateToProps = (state) => ({
   price: getPrice(state),
 });
 
-export default connect(mapStateToProps)(Checkout);
+const mapDispatchToProps = (dispatch) => ({
+  clearCart: () => dispatch(clearCart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

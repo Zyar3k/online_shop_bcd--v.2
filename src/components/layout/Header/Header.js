@@ -38,15 +38,23 @@ const Header = ({ isOpen, setIsOpen, price, cart }) => {
           >
             <p>Contact</p>
           </NavLink>
-          {!cart.length < 1 ? (
-            <NavLink
-              onClick={closeMobileMenu}
-              className={styles.navItem}
-              to='/cart'
-            >
+          <NavLink
+            onClick={closeMobileMenu}
+            className={
+              cart.length === 0
+                ? `${styles.navItem}`
+                : `${styles.navItem} ${styles.productInCart}`
+            }
+            to='/cart'
+          >
+            <p>
+              <i className={`fas fa-cart-arrow-down ${styles.cartIcon}`}></i>
+              Cart{" "}
+            </p>
+            {!cart.length < 1 ? (
               <CartIndicator price={price} cart={cart} />
-            </NavLink>
-          ) : null}
+            ) : null}
+          </NavLink>
         </div>
         <div className={styles.toggleMenuWrapper}>
           <i

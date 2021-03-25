@@ -22,6 +22,7 @@ export const PLUS_PRODUCT_CART = createActionName("PLUS_PRODUCT_CART");
 export const REMOVE_CART_PRODUCT = createActionName("REMOVE_CART_PRODUCT");
 export const DELETE_CART_PRODUCT = createActionName("DELETE_CART_PRODUCT");
 export const CALCULATE_PRICE = createActionName("CALCULATE_PRICE");
+export const CLEAR_CART = createActionName("CLEAR_CART");
 
 const START_REQUEST = createActionName("START_REQUEST");
 const END_REQUEST = createActionName("END_REQUEST");
@@ -39,6 +40,10 @@ export const removeCartProduct = (id) => ({ id, type: REMOVE_CART_PRODUCT });
 export const deleteCartProduct = (payload) => ({
   payload,
   type: DELETE_CART_PRODUCT,
+});
+export const clearCart = (payload) => ({
+  payload,
+  type: CLEAR_CART,
 });
 export const calculatePrice = () => ({ type: CALCULATE_PRICE });
 
@@ -148,6 +153,8 @@ export default function reducer(statePart = initialState, action = {}) {
         roundPrice = 0;
       }
       return { ...statePart, price: roundPrice };
+    case CLEAR_CART:
+      return { ...statePart, cart: [], price: 0 };
     default:
       return statePart;
   }

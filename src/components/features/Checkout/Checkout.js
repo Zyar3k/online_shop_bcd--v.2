@@ -5,9 +5,9 @@ import OrderCheckout from "../OrderCheckout/OrderCheckout";
 
 import styles from "./Checkout.module.scss";
 
-const Checkout = ({ price, cart }) => {
+const Checkout = ({ price, cart, clearCart }) => {
   const [isCorrect, setIsCorrect] = useState(false);
-  console.log(isCorrect);
+  console.log(clearCart);
   const correct = () => setIsCorrect(true);
   // cart, products??, price
   console.log("cart: ", cart);
@@ -64,7 +64,7 @@ const Checkout = ({ price, cart }) => {
           </div>
         </>
       ) : (
-        <FinalConfirm cart={cart} price={price} />
+        <FinalConfirm cart={cart} price={price} clearCart={clearCart} />
       )}
     </div>
   );
