@@ -3,9 +3,10 @@ import CartIndicator from "../../common/CartIndicator/CartIndicator";
 
 import styles from "./Header.module.scss";
 
-const Header = ({ isOpen, setIsOpen }) => {
+const Header = ({ isOpen, setIsOpen, price, cart }) => {
   const mobileMenuToggle = () => setIsOpen(!isOpen);
   const closeMobileMenu = () => setIsOpen(false);
+
   return (
     <header className={styles.header}>
       <nav className={`${styles.navBar} mainLayContainer`}>
@@ -39,7 +40,7 @@ const Header = ({ isOpen, setIsOpen }) => {
             className={styles.navItem}
             to='/cart'
           >
-            <CartIndicator isOpen={isOpen} />
+            <CartIndicator price={price} cart={cart} />
           </NavLink>
         </div>
         <div className={styles.toggleMenuWrapper}>

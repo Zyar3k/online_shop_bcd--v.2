@@ -5,7 +5,6 @@ import styles from "./ProductCartCounter.module.scss";
 class ProductCartCounter extends React.Component {
   plusProduct = () => {
     const { products, plusProduct } = this.props;
-    // console.log(products._id);
     plusProduct(products._id);
   };
 
@@ -16,7 +15,6 @@ class ProductCartCounter extends React.Component {
 
   render() {
     const { products } = this.props;
-    console.log(products);
     return (
       <div className={styles.cartCounterWrapper}>
         <div className={styles.productQuantity}>{products.quantity}</div>

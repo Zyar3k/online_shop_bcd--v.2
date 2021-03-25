@@ -25,7 +25,6 @@ class Cart extends React.Component {
   };
   render() {
     const { cart, price } = this.props;
-    console.log("cart: ", cart.length);
     return (
       <>
         <h1>Your cart</h1>

@@ -123,9 +123,6 @@ export default function reducer(statePart = initialState, action = {}) {
       );
       return { ...statePart, cart: plusProdCart };
     case REMOVE_CART_PRODUCT:
-      // const removeCartProd = statePart.cart.find(
-      //   (item) => item._id === action.id
-      // );
       const removeCartProd = statePart.cart.find(
         (item) => item._id === action.id
       );

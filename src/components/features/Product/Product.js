@@ -12,7 +12,6 @@ class Product extends Component {
     const { loadProducts, match, cart } = this.props;
     loadProducts(match.params.id);
     this.isInCart();
-    console.log(cart);
   }
 
   state = {
@@ -36,9 +35,10 @@ class Product extends Component {
   };
 
   deleteProduct = (_id) => {
-    const { deleteProduct, products } = this.props;
+    const { deleteProduct, products, calculatePrice } = this.props;
     this.notInCart();
     deleteProduct(products[0]._id);
+    calculatePrice();
   };
 
   isInCart = () => {
@@ -49,7 +49,7 @@ class Product extends Component {
   };
 
   componentDidUpdate() {
-    // console.log("cart in extension: ", this.props.cart);
+    console.log("cart in extension: ", this.props.cart);
   }
 
   render() {
@@ -72,17 +72,19 @@ class Product extends Component {
             <h2>Price: {products[0].price}$</h2>
             <div className={styles.buttonsWrapper}>
               <ButtonBack />
+              {/* <Button
+                onClick={this.deleteProduct}
+                // onClick={this.removeProduct}
+                disabled={!this.state.inCart ? true : false}
+              >
+                Remove from cart
+              </Button> */}
+              {!this.state.inCart ? null : <h3>Product in cart</h3>}
               <Button
                 onClick={this.addProductToCart}
                 disabled={this.state.inCart ? true : false}
               >
                 Add to cart
-              </Button>
-              <Button
-                onClick={this.deleteProduct}
-                disabled={!this.state.inCart ? true : false}
-              >
-                Remove from cart
               </Button>
             </div>
           </div>

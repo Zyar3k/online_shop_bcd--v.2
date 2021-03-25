@@ -7,7 +7,6 @@ import {
   addProductCart,
   deleteCartProduct,
   calculatePrice,
-  // plusProductCart,
 } from "../../../redux/productRedux";
 import Product from "./Product";
 
