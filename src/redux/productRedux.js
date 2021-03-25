@@ -19,6 +19,7 @@ export const LOAD_PRODUCT = createActionName("LOAD_PRODUCT");
 
 export const ADD_PRODUCT_CART = createActionName("ADD_PRODUCT_CART");
 export const PLUS_PRODUCT_CART = createActionName("PLUS_PRODUCT_CART");
+export const REMOVE_CART_PRODUCT = createActionName("REMOVE_CART_PRODUCT");
 export const DELETE_CART_PRODUCT = createActionName("DELETE_CART_PRODUCT");
 export const CALCULATE_PRICE = createActionName("CALCULATE_PRICE");
 
@@ -34,6 +35,7 @@ export const addProductCart = (payload) => ({
   type: ADD_PRODUCT_CART,
 });
 export const plusProductCart = (id) => ({ id, type: PLUS_PRODUCT_CART });
+export const removeCartProduct = (id) => ({ id, type: REMOVE_CART_PRODUCT });
 export const deleteCartProduct = (payload) => ({
   payload,
   type: DELETE_CART_PRODUCT,
@@ -114,12 +116,24 @@ export default function reducer(statePart = initialState, action = {}) {
         orderState: false,
       };
     case PLUS_PRODUCT_CART:
-      const prodCartAdd = statePart.cart.find((item) => item.id === action.id);
+      const prodCartAdd = statePart.cart.find((item) => item._id === action.id);
       prodCartAdd.quantity += 1;
       const plusProdCart = statePart.cart.map((item) =>
-        item.id === action.id ? prodCartAdd : item
+        item._id === action.id ? prodCartAdd : item
       );
       return { ...statePart, cart: plusProdCart };
+    case REMOVE_CART_PRODUCT:
+      // const removeCartProd = statePart.cart.find(
+      //   (item) => item._id === action.id
+      // );
+      const removeCartProd = statePart.cart.find(
+        (item) => item._id === action.id
+      );
+      removeCartProd.quantity -= 1;
+      const removeCartCur = statePart.cart.map((item) =>
+        item._id === action.id ? removeCartProd : item
+      );
+      return { ...statePart, cart: removeCartCur };
     case DELETE_CART_PRODUCT:
       const deleteCartProduct = statePart.cart.filter(
         (item) => item._id !== action.payload

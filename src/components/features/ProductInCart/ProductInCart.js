@@ -4,7 +4,7 @@ import ProductCartCounter from "../ProductCartCounter/ProductCartCounter";
 import styles from "./ProductInCart.module.scss";
 
 const ProductInCart = (props) => {
-  const { products, deleteProduct } = props;
+  const { products, deleteProduct, plusProduct, removeProduct } = props;
 
   const handleOnClick = () => {
     deleteProduct(products._id);
@@ -21,7 +21,12 @@ const ProductInCart = (props) => {
       <td>{products.name}</td>
       <td>{products.price}$</td>
       <td>
-        <ProductCartCounter deleteProduct={deleteProduct} />
+        <ProductCartCounter
+          products={products}
+          deleteProduct={deleteProduct}
+          plusProduct={plusProduct}
+          removeProduct={removeProduct}
+        />
       </td>
     </tr>
   );

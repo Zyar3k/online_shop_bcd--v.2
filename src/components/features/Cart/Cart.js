@@ -8,8 +8,20 @@ import styles from "./Cart.module.scss";
 
 class Cart extends React.Component {
   deleteProduct = (id) => {
-    const { deleteProduct } = this.props;
+    const { deleteProduct, calculatePrice } = this.props;
     deleteProduct(id);
+  };
+
+  removeProduct = (products) => {
+    const { removeProduct, calculatePrice } = this.props;
+    products.quantity === 1 ? void 0 : removeProduct(products._id);
+    calculatePrice();
+  };
+
+  plusProduct = (id) => {
+    const { plusProduct, calculatePrice } = this.props;
+    plusProduct(id);
+    calculatePrice();
   };
   render() {
     const { cart, price } = this.props;
@@ -27,17 +39,15 @@ class Cart extends React.Component {
                 <th>Price</th>
                 <th>Quantity</th>
               </tr>
-              {cart.length !== 0 ? (
-                cart.map((item) => (
-                  <ProductInCart
-                    key={item._id}
-                    products={item}
-                    deleteProduct={this.deleteProduct}
-                  />
-                ))
-              ) : (
-                <PendingInfo></PendingInfo>
-              )}
+              {cart.map((item) => (
+                <ProductInCart
+                  key={item._id}
+                  products={item}
+                  deleteProduct={this.deleteProduct}
+                  plusProduct={this.plusProduct}
+                  removeProduct={this.removeProduct}
+                />
+              ))}
             </table>
             <article className={styles.summaryWrapper}>
               <span>
