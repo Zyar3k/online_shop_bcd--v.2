@@ -10,6 +10,12 @@ const ProductInCart = (props) => {
     deleteProduct(products._id);
   };
 
+  const subtotal = () => {
+    const counting = products.price * products.quantity;
+    const score = parseFloat(counting.toFixed(2));
+    return score;
+  };
+
   return (
     <tr>
       <td className={styles.delete}>
@@ -18,8 +24,10 @@ const ProductInCart = (props) => {
       <td className={styles.imgWrapper}>
         <img src={products.img} alt='img' />
       </td>
-      <td>{products.name}</td>
-      <td>{products.price}$</td>
+      <td className={styles.productName}>{products.name}</td>
+      <td>
+        <strong>{products.price}$</strong>
+      </td>
       <td>
         <ProductCartCounter
           products={products}
@@ -27,6 +35,9 @@ const ProductInCart = (props) => {
           plusProduct={plusProduct}
           removeProduct={removeProduct}
         />
+      </td>
+      <td>
+        <strong>{subtotal()} $</strong>
       </td>
     </tr>
   );

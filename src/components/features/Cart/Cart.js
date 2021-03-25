@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Button from "../../common/Button/Button";
 import ButtonBack from "../../common/ButtonBack/ButtonBack";
 import PendingInfo from "../../common/PendingInfo/PendingInfo";
@@ -8,7 +10,7 @@ import styles from "./Cart.module.scss";
 
 class Cart extends React.Component {
   deleteProduct = (id) => {
-    const { deleteProduct, calculatePrice } = this.props;
+    const { deleteProduct } = this.props;
     deleteProduct(id);
   };
 
@@ -37,6 +39,7 @@ class Cart extends React.Component {
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Subtotal</th>
               </tr>
               {cart.map((item) => (
                 <ProductInCart
@@ -55,7 +58,9 @@ class Cart extends React.Component {
               <div className={styles.checkoutWrapper}>
                 <h2>Summary</h2>
                 <h3>Total price: {price}$</h3>
-                <Button>Proceed to checkout</Button>
+                <Link to='/summary'>
+                  <Button>Proceed to checkout</Button>
+                </Link>
               </div>
             </article>
           </>

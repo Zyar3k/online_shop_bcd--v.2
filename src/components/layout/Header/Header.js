@@ -35,13 +35,15 @@ const Header = ({ isOpen, setIsOpen, price, cart }) => {
           >
             <p>Contact</p>
           </NavLink>
-          <NavLink
-            onClick={closeMobileMenu}
-            className={styles.navItem}
-            to='/cart'
-          >
-            <CartIndicator price={price} cart={cart} />
-          </NavLink>
+          {!cart.length < 1 ? (
+            <NavLink
+              onClick={closeMobileMenu}
+              className={styles.navItem}
+              to='/cart'
+            >
+              <CartIndicator price={price} cart={cart} />
+            </NavLink>
+          ) : null}
         </div>
         <div className={styles.toggleMenuWrapper}>
           <i
