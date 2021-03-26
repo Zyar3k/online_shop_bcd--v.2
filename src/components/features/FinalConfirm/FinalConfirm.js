@@ -3,9 +3,17 @@ import { Link } from "react-router-dom";
 import Button from "../../common/Button/Button";
 import styles from "./FinalConfirm.module.scss";
 
-const FinalConfirm = ({ cart, price, clearCart }) => {
-  // console.log(cart);
-  // console.log(price);
+const FinalConfirm = ({ cart, price, clearCart, values }) => {
+  const {
+    name,
+    lastName,
+    company,
+    street,
+    postcode,
+    city,
+    phone,
+    email,
+  } = values;
   const clearCartTest = () => {
     clearCart();
   };
@@ -45,12 +53,36 @@ const FinalConfirm = ({ cart, price, clearCart }) => {
           </td>
         </tr>
       </table>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Lastname</th>
+          <th>Street</th>
+          <th>Poscode</th>
+          <th>City</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <td>{name}</td>
+          <td>{lastName}</td>
+          <td>{street}</td>
+          <td>{postcode}</td>
+          <td>{city}</td>
+          <td>{phone}</td>
+          <td>{email}</td>
+        </tr>
+      </table>
       <h3 className={styles.thanks}>
-        Thank you for your order, please click the button below to confirm
+        Thank you for your order, please click the button below to confirm. We
+        will send a confirmation to your email address: <span>{email}</span>
       </h3>
-      <Link to='/'>
-        <Button onClick={clearCartTest}>Order</Button>
-      </Link>
+      <div className={styles.confirmWrapper}>
+        <Link to='/'>
+          <Button onClick={clearCartTest}>Order</Button>
+        </Link>
+      </div>
     </div>
   );
 };

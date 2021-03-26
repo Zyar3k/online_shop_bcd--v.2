@@ -16,17 +16,17 @@ const OrderCheckout = ({ price, cart }) => {
 
   return (
     <>
-      <table>
+      <table className={styles.table}>
         <tr>
           <th>Product</th>
           <th>Subtotal</th>
         </tr>
         <>{orderElement}</>
         <tr>
-          <th></th>
-          <th className={styles.totalPrice}>
+          <td></td>
+          <td className={styles.totalPrice}>
             <p>Total: {price} $</p>
-          </th>
+          </td>
         </tr>
       </table>
     </>
