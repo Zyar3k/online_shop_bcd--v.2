@@ -1,9 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// img {
-//   height: 300px;
-// }
-
 .productWrapper {
   margin: 10px 0;
   padding: 10px;
@@ -17,21 +13,24 @@
     width: 40%;
     position: relative;
     margin: auto 0;
+    min-width: 40%;
+    display: flex;
+    justify-content: center;
 
     img {
       max-height: calc(100vh - 120px);
+      max-width: 100%;
       transition: ease-in-out 0.5s all;
-      // cursor: zoom-in;
-
-      // &:hover {
-      //   transform: scale(1.2);
-      // }
     }
 
     .productTag {
       position: absolute;
-      top: 0;
-      left: 0;
+      padding: 10px 20px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background-color: khaki;
     }
   }
 
@@ -41,13 +40,10 @@
 
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     justify-content: space-around;
     align-items: center;
-    // border: 1px solid black;
 
     .productName {
-      // background-color: grey;
       width: 100%;
       font-size: 40px;
 
@@ -59,22 +55,57 @@
     .description {
       font-size: 26px;
       padding: 0 20px;
-      // border: 1px solid black;
     }
-    h2 {
-      // border: 1px solid black;
-      // margin-top: 20px;
+    .productPrice {
       width: 100%;
       text-align: center;
-      // margin: 10px;
     }
 
     .buttonsWrapper {
-      // border: 1px solid black;
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center;
+    }
+  }
+}
+/***************************************************************************************/
+
+@media (max-width: 767px) {
+  .productWrapper {
+    padding: 0;
+    padding-top: 10px;
+
+    .imgWrapper {
+      min-width: 100%;
+
+      .productTag {
+      }
+    }
+
+    .descriptionWrapper {
+      width: 100%;
+      padding: 0;
+
+      .productName {
+        font-size: 30px;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .description {
+      }
+      .productPrice {
+        padding: 10px;
+      }
+
+      .buttonsWrapper {
+        .productInCart {
+          font-size: 16px;
+          padding: 8px;
+          text-align: center;
+        }
+      }
     }
   }
 }

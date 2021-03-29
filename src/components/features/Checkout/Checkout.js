@@ -68,7 +68,6 @@ const Checkout = ({ price, cart, clearCart }) => {
             onChanges={onChanges}
             price={price}
             cart={cart}
-            correct={correct}
             handleOnsubmit={handleOnsubmit}
           />
         </>

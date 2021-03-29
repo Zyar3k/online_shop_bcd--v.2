@@ -69,7 +69,7 @@ class Product extends Component {
           <div className={styles.descriptionWrapper}>
             <h2 className={styles.productName}>{products[0].name}</h2>
             <p className={styles.description}>{products[0].description}</p>
-            <h2>Price: {products[0].price}$</h2>
+            <h2 className={styles.productPrice}>Price: {products[0].price}$</h2>
             <div className={styles.buttonsWrapper}>
               <ButtonBack />
               {/* <Button
@@ -79,7 +79,9 @@ class Product extends Component {
               >
                 Remove from cart
               </Button> */}
-              {!this.state.inCart ? null : <h3>Product in cart</h3>}
+              {!this.state.inCart ? null : (
+                <h3 className={styles.productInCart}>Product in cart</h3>
+              )}
               <Button
                 onClick={this.addProductToCart}
                 disabled={this.state.inCart ? true : false}

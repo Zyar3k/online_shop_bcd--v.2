@@ -1,17 +1,10 @@
+import { useForm } from "react-hook-form";
+
 import Button from "../../common/Button/Button";
 import OrderCheckout from "../OrderCheckout/OrderCheckout";
 import styles from "./CheckoutForm.module.scss";
 
-import { useForm } from "react-hook-form";
-
-const CheckoutForm = ({
-  values,
-  onChanges,
-  price,
-  cart,
-  correct,
-  handleOnsubmit,
-}) => {
+const CheckoutForm = ({ values, onChanges, price, cart, handleOnsubmit }) => {
   const {
     name,
     lastName,
@@ -43,13 +36,14 @@ const CheckoutForm = ({
         onSubmit={handleSubmit(handleOnsubmit)}
       >
         <h2 className={styles.checkoutFormTitle}>Billing details</h2>
-        <label htmlFor='' className={errors.name && styles.notValid}>
+
+        <label htmlFor='name' className={errors.name && styles.notValid}>
           <p>
             First name
             {errors.name && <strong>*</strong>}
           </p>
-          {/* {errors.name && <p>This field is required</p>} */}
           <input
+            id='name'
             name='name'
             type='text'
             value={name}
@@ -57,9 +51,13 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor='' className={errors.lastName && styles.notValid}>
+        <label
+          htmlFor='lastName'
+          className={errors.lastName && styles.notValid}
+        >
           <p>Last name{errors.lastName && <strong>*</strong>}</p>
           <input
+            id='lastName'
             name='lastName'
             type='text'
             value={lastName}
@@ -67,13 +65,19 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor=''>
+        <label htmlFor='company'>
           <p>Company name (optional)</p>
-          <input type='text' value={company} onChange={handleOnChangeCompany} />
+          <input
+            id='company'
+            type='text'
+            value={company}
+            onChange={handleOnChangeCompany}
+          />
         </label>
-        <label htmlFor='' className={errors.street && styles.notValid}>
+        <label htmlFor='street' className={errors.street && styles.notValid}>
           <p>Street adress{errors.name && <strong>*</strong>}</p>
           <input
+            id='street'
             name='street'
             type='text'
             value={street}
@@ -81,9 +85,13 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor='' className={errors.postcode && styles.notValid}>
+        <label
+          htmlFor='postcode'
+          className={errors.postcode && styles.notValid}
+        >
           <p>Postcode / ZIP{errors.postcode && <strong>*</strong>}</p>
           <input
+            id='postcode'
             name='postcode'
             type='text'
             value={postcode}
@@ -91,9 +99,10 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor='' className={errors.city && styles.notValid}>
+        <label htmlFor='city' className={errors.city && styles.notValid}>
           <p>Town / City{errors.city && <strong>*</strong>}</p>
           <input
+            id='city'
             name='city'
             type='text'
             value={city}
@@ -101,9 +110,10 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor='' className={errors.phone && styles.notValid}>
+        <label htmlFor='phone' className={errors.phone && styles.notValid}>
           <p>Phone{errors.phone && <strong>*</strong>}</p>
           <input
+            id='phone'
             name='phone'
             type='number'
             value={phone}
@@ -111,9 +121,10 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor='' className={errors.email && styles.notValid}>
+        <label htmlFor='email' className={errors.email && styles.notValid}>
           <p>Email address{errors.email && <strong>*</strong>}</p>
           <input
+            id='email'
             name='email'
             type='email'
             value={email}
@@ -121,9 +132,9 @@ const CheckoutForm = ({
             ref={register({ required: true })}
           />
         </label>
-        <label htmlFor=''>
+        <label htmlFor='notes'>
           <p>Order notes (optional)</p>
-          <textarea name='' id='' cols='100' rows='6'></textarea>
+          <textarea id='notes' name='notes' cols='100' rows='6'></textarea>
         </label>
         <div className={styles.buttonWrapper}>
           <Button type='submit'>Place order</Button>
