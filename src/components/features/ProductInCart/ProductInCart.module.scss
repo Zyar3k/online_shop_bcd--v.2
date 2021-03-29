@@ -35,3 +35,44 @@ tr {
     }
   }
 }
+
+@media (max-width: 767px) {
+  tr {
+    // background-color: red;
+    text-align: center;
+
+    td {
+      padding: 4px;
+      // background-color: red;
+      font-size: 18px;
+      font-size: 14px;
+    }
+
+    td.delete {
+      width: 50px;
+      width: 20px;
+      button {
+        border: none;
+        background: none;
+        padding: 8px;
+        color: khaki;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    td.productName {
+      font-size: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .imgWrapper {
+      margin: auto auto;
+      height: 75px;
+      img {
+        max-height: 100%;
+      }
+    }
+  }
+}

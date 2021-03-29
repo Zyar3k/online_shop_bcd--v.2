@@ -27,3 +27,19 @@ table {
     }
   }
 }
+
+@media (max-width: 767px) {
+  table {
+    tr th {
+      padding: 14px 6px;
+      font-size: 14px;
+    }
+  }
+
+  .summaryWrapper {
+    min-height: 200px;
+
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}
