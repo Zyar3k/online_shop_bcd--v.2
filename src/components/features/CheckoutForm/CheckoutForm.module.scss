@@ -1,0 +1,84 @@
+@import "../../../styles/settings.scss";
+
+.checkoutFormWrapper {
+  // border: 1px solid black;
+  height: 60vh;
+  padding: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  // flex-direction: column;
+
+  .checkoutFormTitle {
+    width: 100%;
+  }
+
+  label {
+    // border: 1px dotted black;
+    font-size: 20px;
+    padding: 8px;
+    width: 50%;
+    // padding: 20px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      font-weight: bold;
+      strong {
+        color: red;
+        margin-left: 4px;
+      }
+    }
+
+    &:last-of-type {
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+
+      textarea {
+        padding: 10px;
+
+        border: none;
+        border-radius: 10px;
+      }
+    }
+
+    input {
+      // background-color: red;
+      padding: 10px;
+
+      border: none;
+      border-radius: 10px;
+    }
+
+    &.notValid {
+      // color: khaki;
+
+      input {
+        background-color: khaki;
+        border: red 1px solid;
+      }
+    }
+  }
+
+  .textarea {
+    display: flex;
+    width: 50%;
+    // border: 1px dotted black;
+  }
+}
+.formValid {
+  background-color: red;
+  padding: 10px;
+  text-align: center;
+}
+.buttonWrapper {
+  // border: 1px solid black;
+  width: 100%;
+  // background-color: red;
+  padding: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+}

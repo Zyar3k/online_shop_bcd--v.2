@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../common/Button/Button";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import FinalConfirm from "../FinalConfirm/FinalConfirm";
 import OrderCheckout from "../OrderCheckout/OrderCheckout";
 
@@ -16,6 +17,8 @@ const Checkout = ({ price, cart, clearCart }) => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
+  console.log(isCorrect);
+
   const values = {
     name,
     lastName,
@@ -27,9 +30,6 @@ const Checkout = ({ price, cart, clearCart }) => {
     email,
   };
 
-  console.log(name);
-  console.log(lastName);
-
   const handleOnChangeName = (event) => setName(event.target.value);
   const handleOnChangeLastName = (event) => setLastName(event.target.value);
   const handleOnChangeCompany = (event) => setCompany(event.target.value);
@@ -39,84 +39,38 @@ const Checkout = ({ price, cart, clearCart }) => {
   const handleOnChangePhone = (event) => setPhone(event.target.value);
   const handleOnChangeEmail = (event) => setEmail(event.target.value);
 
-  const correct = () => setIsCorrect(true);
-  // cart, products??, price
-  // console.log("cart: ", cart);
-  // console.log("price: ", price);
+  const onChanges = {
+    handleOnChangeName,
+    handleOnChangeLastName,
+    handleOnChangeCompany,
+    handleOnChangeStreet,
+    handleOnChangePostcode,
+    handleOnChangeCity,
+    handleOnChangePhone,
+    handleOnChangeEmail,
+  };
+
+  const handleOnsubmit = () => {
+    correct();
+  };
+
+  const correct = () => {
+    setIsCorrect(true);
+  };
+
   return (
     <div className={styles.checkoutWrapper}>
       <h2>Checkout</h2>
       {!isCorrect ? (
         <>
-          <form className={styles.checkoutFormWrapper}>
-            <h3 className={styles.checkoutFormTitle}>Billing details</h3>
-            <label htmlFor=''>
-              First name
-              <input type='text' value={name} onChange={handleOnChangeName} />
-            </label>
-            <label htmlFor=''>
-              Last name
-              <input
-                type='text'
-                value={lastName}
-                onChange={handleOnChangeLastName}
-              />
-            </label>
-            <label htmlFor=''>
-              Company name (optional)
-              <input
-                type='text'
-                value={company}
-                onChange={handleOnChangeCompany}
-              />
-            </label>
-            <label htmlFor=''>
-              Street adress
-              <input
-                type='text'
-                value={street}
-                onChange={handleOnChangeStreet}
-              />
-            </label>
-            <label htmlFor=''>
-              Postcode / ZIP
-              <input
-                type='text'
-                value={postcode}
-                onChange={handleOnChangePostcode}
-              />
-            </label>
-            <label htmlFor=''>
-              Town / City
-              <input type='text' value={city} onChange={handleOnChangeCity} />
-            </label>
-            <label htmlFor=''>
-              Phone
-              <input
-                type='number'
-                value={phone}
-                onChange={handleOnChangePhone}
-              />
-            </label>
-            <label htmlFor=''>
-              Email address
-              <input
-                type='email'
-                value={email}
-                onChange={handleOnChangeEmail}
-              />
-            </label>
-            <label htmlFor=''>
-              Order notes (optional)
-              <textarea name='' id='' cols='100' rows='6'></textarea>
-            </label>
-          </form>
-          <article className={styles.orderSummaryWrapper}>
-            <OrderCheckout price={price} cart={cart} />
-          </article>
-          <div className={styles.buttonWrapper}>
-            <Button onClick={correct}>Place order</Button>
-          </div>
+          <CheckoutForm
+            values={values}
+            onChanges={onChanges}
+            price={price}
+            cart={cart}
+            correct={correct}
+            handleOnsubmit={handleOnsubmit}
+          />
         </>
       ) : (
         <FinalConfirm
