@@ -66,6 +66,11 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .productInCart {
+        font-size: 16px;
+        padding: 0 20px;
+        text-align: center;
+      }
     }
   }
 }

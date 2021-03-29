@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
-.table {
+table {
   // border: 1px black solid;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 .orderWrapper {
   border: 1px black solid;
@@ -35,5 +35,20 @@
   p {
     margin: 0 auto;
     width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .table {
+  }
+  .orderWrapper {
+    .orderTitle {
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    .orderSubtotal {
+      font-size: 14px;
+    }
   }
 }

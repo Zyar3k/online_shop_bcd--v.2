@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./OrderCheckout.module.scss";
 
 const OrderCheckout = ({ price, cart }) => {
-  const orderElement = cart.map((item) => (
-    <tr className={styles.orderWrapper}>
+  const orderElement = cart.map((item, key) => (
+    <tr key={key} className={styles.orderWrapper}>
       <td className={styles.orderTitle}>
         <p className={styles.orderName}>{item.name}</p>
         <p className={styles.orderQuantity}>x {item.quantity}</p>
@@ -16,7 +16,7 @@ const OrderCheckout = ({ price, cart }) => {
 
   return (
     <>
-      <table className={styles.table}>
+      <table>
         <tr>
           <th>Product</th>
           <th>Subtotal</th>

@@ -1,8 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .checkoutFormWrapper {
-  // border: 1px solid black;
-  height: 60vh;
+  min-height: 60vh;
   padding: 20px;
 
   display: flex;
@@ -81,4 +80,41 @@
 
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  .checkoutFormWrapper {
+    height: unset;
+    min-height: 60vh;
+
+    .checkoutFormTitle {
+    }
+
+    label {
+      font-size: 14px;
+      width: 100%;
+
+      p {
+        strong {
+        }
+      }
+
+      &:last-of-type {
+        p {
+          margin-right: 10px;
+        }
+
+        textarea {
+        }
+      }
+
+      input {
+      }
+
+      &.notValid {
+        input {
+        }
+      }
+    }
+  }
 }

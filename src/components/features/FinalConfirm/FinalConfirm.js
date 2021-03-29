@@ -32,12 +32,14 @@ const FinalConfirm = ({ cart, price, clearCart, values }) => {
   return (
     <div>
       <table>
-        <tr>
-          <th>Order number</th>
-          <th>Order date</th>
-          <th>Total</th>
-          <th>Payment method</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Order number</th>
+            <th>Order date</th>
+            <th>Total</th>
+            <th>Payment method</th>
+          </tr>
+        </thead>
         <tr className={styles.orderConfirm}>
           <td>
             <p>#{Math.floor(Math.random() * 1000)}</p>
@@ -54,26 +56,27 @@ const FinalConfirm = ({ cart, price, clearCart, values }) => {
         </tr>
       </table>
 
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Lastname</th>
-          <th>Street</th>
-          <th>Poscode</th>
-          <th>City</th>
-          <th>Phone</th>
-          <th>Email</th>
-        </tr>
-        <tr>
-          <td>{name}</td>
-          <td>{lastName}</td>
-          <td>{street}</td>
-          <td>{postcode}</td>
-          <td>{city}</td>
-          <td>{phone}</td>
-          <td>{email}</td>
-        </tr>
-      </table>
+      <article className={styles.customerInfo}>
+        <div className={styles.leftSide}>
+          <h3 className={styles.addressTitle}>Customer</h3>
+          <h3 className={styles.addressTitle}>Adress</h3>
+          <h3 className={styles.addressTitle}>Phone</h3>
+          <h3 className={styles.addressTitle}>Email</h3>
+        </div>
+        <div className={styles.rightSide}>
+          <p>
+            {name} {lastName}
+          </p>
+          <div className={styles.address}>
+            <p>{street}</p>
+            <p>{postcode}</p>
+            <p>{city}</p>
+          </div>
+          <p>{phone}</p>
+          <p>{email}</p>
+        </div>
+      </article>
+
       <h3 className={styles.thanks}>
         Thank you for your order, please click the button below to confirm. We
         will send a confirmation to your email address: <span>{email}</span>
