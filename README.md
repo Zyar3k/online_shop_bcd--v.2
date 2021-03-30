@@ -21,7 +21,6 @@ To run app
 
 ```sh
 cd online_shop_bcd--v.2
-cd client
 npm i / yarn install
 npm start / yarn start
 ```
