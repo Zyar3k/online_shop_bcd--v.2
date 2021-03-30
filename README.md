@@ -2,7 +2,7 @@
 
 ### [LIVE DEMO](https://bcd-onlineshop.netlify.app/)
 
-> Online store created from scratch. Application server and client. The ability to add products to your cart. Refreshed page with new features
+> Online store created from scratch. The ability to add products to your cart. Refreshed page with new features
 > 
 ## Frontend
 
