@@ -24,7 +24,7 @@ const Slider = () => {
       >
         <div>
           <img className={styles.imgSlider} src={img1} alt='img1' />
-          <p className={`${styles.legenda} legend`}>Personalized gifts</p>
+          <p className='legend'>Personalized gifts</p>
         </div>
         <div>
           <img className={styles.imgSlider} src={img2} alt='img2' />

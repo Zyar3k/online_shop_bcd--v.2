@@ -1,9 +1,9 @@
-import React from "react";
+import styles from "./PendingInfo.module.scss";
 
 const PendingInfo = ({ children }) => {
   return (
     <div>
-      <h3>{children}</h3>
+      <h3 className={styles.pendingInfo}>{children}</h3>
     </div>
   );
 };

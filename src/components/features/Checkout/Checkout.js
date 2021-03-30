@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../common/Button/Button";
+import PageTitle from "../../common/PageTitle/PageTitle";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import FinalConfirm from "../FinalConfirm/FinalConfirm";
 import OrderCheckout from "../OrderCheckout/OrderCheckout";
@@ -60,7 +61,7 @@ const Checkout = ({ price, cart, clearCart }) => {
 
   return (
     <div className={styles.checkoutWrapper}>
-      <h2>Checkout</h2>
+      <PageTitle>Checkout</PageTitle>
       {!isCorrect ? (
         <>
           <CheckoutForm

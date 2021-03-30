@@ -17,29 +17,31 @@ const ProductInCart = (props) => {
   };
 
   return (
-    <tr>
-      <td className={styles.delete}>
-        <button onClick={handleOnClick}>X</button>
-      </td>
-      <td className={styles.imgWrapper}>
-        <img src={products.img} alt='img' />
-      </td>
-      <td className={styles.productName}>{products.name}</td>
-      <td>
-        <strong>{products.price}$</strong>
-      </td>
-      <td>
-        <ProductCartCounter
-          products={products}
-          deleteProduct={deleteProduct}
-          plusProduct={plusProduct}
-          removeProduct={removeProduct}
-        />
-      </td>
-      <td>
-        <strong>{subtotal()} $</strong>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <td className={styles.delete}>
+          <button onClick={handleOnClick}>X</button>
+        </td>
+        <td className={styles.imgWrapper}>
+          <img src={products.img} alt='img' />
+        </td>
+        <td className={styles.productName}>{products.name}</td>
+        <td>
+          <strong>{products.price}$</strong>
+        </td>
+        <td>
+          <ProductCartCounter
+            products={products}
+            deleteProduct={deleteProduct}
+            plusProduct={plusProduct}
+            removeProduct={removeProduct}
+          />
+        </td>
+        <td>
+          <strong>{subtotal()} $</strong>
+        </td>
+      </tr>
+    </tbody>
   );
 };
 

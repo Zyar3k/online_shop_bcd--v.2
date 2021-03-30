@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Button from "../../common/Button/Button";
 import ButtonBack from "../../common/ButtonBack/ButtonBack";
+import PageTitle from "../../common/PageTitle/PageTitle";
 import PendingInfo from "../../common/PendingInfo/PendingInfo";
 import ProductInCart from "../ProductInCart/ProductInCart";
 
@@ -29,18 +30,20 @@ class Cart extends React.Component {
     const { cart, price } = this.props;
     return (
       <>
-        <h1>Your cart</h1>
+        <PageTitle>Your cart</PageTitle>
         {cart.length !== 0 ? (
           <>
             <table>
-              <tr>
-                <th></th>
-                <th></th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-              </tr>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
               {cart.map((item) => (
                 <ProductInCart
                   key={item._id}

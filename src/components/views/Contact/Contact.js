@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import PageTitle from "../../common/PageTitle/PageTitle";
 
 class Contact extends Component {
   render() {
     return (
       <div>
-        <p>Contact</p>
+        {/* <p>Contact</p> */}
+        <PageTitle>Contact</PageTitle>
       </div>
     );
   }

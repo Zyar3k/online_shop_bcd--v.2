@@ -1,5 +1,6 @@
 import React from "react";
 import Loader from "../../common/Loader/Loader";
+import PageTitle from "../../common/PageTitle/PageTitle";
 import PendingInfo from "../../common/PendingInfo/PendingInfo";
 import ProductsAmount from "../../common/ProductsAmount/ProductsAmountContainer";
 import ProductsList from "../ProductsList/ProductsList";
@@ -21,6 +22,7 @@ class Products extends React.Component {
     ) {
       return (
         <main className={styles.products}>
+          <PageTitle>Our products</PageTitle>
           <span className={styles.productsAmountWrapper}>
             <ProductsAmount />
           </span>
