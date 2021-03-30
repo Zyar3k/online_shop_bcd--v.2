@@ -40,20 +40,22 @@ const FinalConfirm = ({ cart, price, clearCart, values }) => {
             <th>Payment method</th>
           </tr>
         </thead>
-        <tr className={styles.orderConfirm}>
-          <td>
-            <p>#{Math.floor(Math.random() * 1000)}</p>
-          </td>
-          <td>
-            <p>{today()}</p>
-          </td>
-          <td>
-            <p>{price} $</p>
-          </td>
-          <td>
-            <p>Cash on delivery</p>
-          </td>
-        </tr>
+        <tbody>
+          <tr className={styles.orderConfirm}>
+            <td>
+              <p>#{Math.floor(Math.random() * 1000)}</p>
+            </td>
+            <td>
+              <p>{today()}</p>
+            </td>
+            <td>
+              <p>{price} $</p>
+            </td>
+            <td>
+              <p>Cash on delivery</p>
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <article className={styles.customerInfo}>

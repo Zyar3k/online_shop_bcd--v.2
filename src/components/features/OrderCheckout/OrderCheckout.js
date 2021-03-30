@@ -17,17 +17,21 @@ const OrderCheckout = ({ price, cart }) => {
   return (
     <>
       <table>
-        <tr>
-          <th>Product</th>
-          <th>Subtotal</th>
-        </tr>
-        <>{orderElement}</>
-        <tr>
-          <td></td>
-          <td className={styles.totalPrice}>
-            <p>Total: {price} $</p>
-          </td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>{orderElement}</tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td className={styles.totalPrice}>
+              <p>Total: {price} $</p>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </>
   );
